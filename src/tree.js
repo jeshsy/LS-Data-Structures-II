@@ -8,13 +8,15 @@ class Tree {
     this.children.push(node);
   }
   contains(value) {
-    if (this.value === value) return true;
+    let x = 0;
+    if (this.value === value) x += 1;
     for (let i = 0; i < this.children.length; i++) {
-      if (this.children.length === 0) return false;
-      // return this.children[i].contains(value);
-      if (this.children[i].value === value) return true;
-      return false;
+      if (this.children !== null) {
+        x += this.children[i].contains(value);
+      }
+      // if (this.children[i].value === value) return true;
     }
+    return (x > 0);
   }
 }
 module.exports = Tree;
